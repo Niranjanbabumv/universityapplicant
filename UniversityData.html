@@ -1,0 +1,116 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="app.js"></script>
+	<style>
+			.container {
+			  display: flex;
+			}
+			.container > div {
+			  flex: 1; /*grow*/
+			}
+			.mainBox {
+			  position: absolute;
+			  left: 70px;
+			  width: 1200px;
+			  height: 870px;
+			  border: 1px solid black;
+			}
+			.insideBox {
+			  position:absolute;
+			  left: 40px; 
+			  width: 1100px;
+			  border: 1px solid black;
+			}
+	</style>
+</head>
+	<body ng-app = "myModule">
+			<div class="mainBox">
+					<p style="text-align: center;font-family: cursive;font-style: normal;">Illinios State University</p><input type="submit" class="submit" value="Login" id = "submit" style="float: right;">
+					<p style="text-align: center;font-family: cursive;font-style: normal;">Address : 100 N University ST, Normal, IL 61761, USA  Telephone: 815-226-4901</p>
+					<hr />
+			<p style="font-family: cursive;font-style: normal;font-size: x-large; padding-left:40px;">Apply for Admission</p>
+			<div class="insideBox">
+				<div ng-controller = "myController">
+				<br>
+					<div>
+						&nbsp;&nbsp;<img ng-src = "{{loginIcon.loginPngLoc}}" alt = "{{loginIcon.name}}" style = "height:20px; width:30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size= "5"><b><i>{{"Applicant Details"}}</i></b></font>
+					</div>
+					<hr />
+					<div class="container">
+						<div>
+							&nbsp;&nbsp;<i><b>Legal Name :</b></i><br><br>
+							&nbsp;&nbsp;<input type ="text" id= "name" ng-model="name">
+						</div>
+						<div>
+							&nbsp;&nbsp;<i><b>SSN :</b></i><br><br>
+							&nbsp;&nbsp;<input type="text" id="ssn" ng-model="ssn">
+						</div>
+						<div>
+							&nbsp;&nbsp;<i><b>Date Of Birth (mm/dd/yyyy) :</b></i><br><br>
+							&nbsp;&nbsp;<input type="date" id="dob" ng-model="dob">
+						</div>
+					</div>
+					<br><br>
+					<div class="container">
+						<div>
+							&nbsp;&nbsp;<i><b>Gender :</b></i><br><br>
+							&nbsp;&nbsp;<input type="radio" id="gender" ng-model="gender" value="Male">Male
+							&nbsp;&nbsp;<input type="radio" id="gender" ng-model="gender" value="Female">Female
+						</div>
+						<div>
+							&nbsp;&nbsp;<i><b>Email :</b></i><br><br>
+							&nbsp;&nbsp;<input type="text" id="emailId" ng-model="emailId">
+						</div>
+						<div>
+							&nbsp;&nbsp;<i><b>Cell Phone :</b></i><br><br>
+							&nbsp;&nbsp;<input type="text" id="countryCode" style="width: 3em;" ng-model="countryCode">&nbsp;&nbsp;<input type="text" id="phoneNumber" ng-model="phoneNumber">
+						</div>
+					</div>
+					<br><br>
+					<div class="container">
+						<div>
+							&nbsp;&nbsp;<i><b>Address :</b></i><br><br>
+							&nbsp;&nbsp;<input type="text" id="address" style="width: 30em;" ng-model="address">
+						</div>
+						<div>
+							&nbsp;&nbsp;<i><b>Upload Photo Id Proof :</b></i><br><br>
+							&nbsp;&nbsp;<input type="file" file-model="myFile" />
+						</div>
+					</div>
+					<br><br>
+					<div class="container">
+						<div>
+							&nbsp;&nbsp;<i><b>Digital Identification No. :</b></i><br><br>
+							&nbsp;&nbsp;<input type="text" id="digitalId" style="width: 30em;" ng-model="digitalId">
+						</div>
+					</div>
+					<br><br>		
+					<div>
+						&nbsp;&nbsp;<img ng-src = "{{loginIcon.loginPngLoc}}" alt = "{{loginIcon.name}}" style = "height:20px; width:30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size= "5"><b><i>{{"Course Details"}}</i></b></font>
+					</div>
+					<hr />		
+					<br>
+					<div class="container">
+						<div>
+							&nbsp;&nbsp;<i><b>Applying For :</b></i><br><br>
+							&nbsp;&nbsp;<input type="radio" id="applyingFor" ng-model="applyingFor" value="UG">UG
+							&nbsp;&nbsp;<input type="radio" id="applyingFor" ng-model="applyingFor" value="PG">PG
+						</div>
+						<div>
+							&nbsp;&nbsp;<i><b>Course :</b></i><br><br>
+							&nbsp;&nbsp;<select ng-model="selectedCourse" ng-options="x for x in coursenames"></select>
+						</div>
+					</div>
+					<br><br>		
+					<div>
+						&nbsp;&nbsp;<input type="submit" id = "submit" value="Submit"  ng-click="submitStudentData()"></input>
+					</div>
+					<br>
+				</div>
+			<div>
+		</div>
+	</body>
+</html>
